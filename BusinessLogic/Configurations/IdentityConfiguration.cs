@@ -12,7 +12,7 @@ namespace SecureTrade.BusinessLogic.Configurations
 {
     public static class IdentityConfiguration
     {
-        public static void ConfigurationIdentity(this IServiceCollection services)
+        public static void ConfigureIdentity(this IServiceCollection services)
         {
             services.AddIdentity<User, IdentityRole>(x =>
             {
