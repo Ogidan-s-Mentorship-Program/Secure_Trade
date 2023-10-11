@@ -20,7 +20,6 @@ namespace SecureTrade.DataAccess.Entities
         public DateTime UploadedAt { get; set; }
         public DateTime EditedAt { get; set; }
         public Guid UpdatedBy = Guid.NewGuid();
-        public Guid UserId { get; set;}
-        
+        public Guid VendorId { get; set;}   
     }
 }
