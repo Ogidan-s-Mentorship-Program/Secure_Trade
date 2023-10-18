@@ -15,4 +15,8 @@
     <Folder Include="Json\" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\SecureTrade.BusinessLogic.csproj" />
+  </ItemGroup>
+
 </Project>
