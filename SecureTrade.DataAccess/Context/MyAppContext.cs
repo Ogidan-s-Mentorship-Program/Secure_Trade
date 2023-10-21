@@ -2,16 +2,17 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace SecureTrade.DataAccess.Context
 {
-    public class MyAppContext: DbContext
+    public class MyAppContext : IdentityDbContext
     {
-        public MyAppContext(DbContextOptions<MyAppContext> options): base(options)
-    {
-        
-    }
-        
+        public MyAppContext(DbContextOptions<MyAppContext> options) : base(options)
+        {
+
+        }
+
     }
 }
