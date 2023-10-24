@@ -10,5 +10,6 @@ namespace SecureTrade.DataAccess.Entities
         public Guid Id = Guid.NewGuid();
         public string Message { get; set; } = string.Empty;
         public Guid UserId { get; set; }
+       
     }
 }
