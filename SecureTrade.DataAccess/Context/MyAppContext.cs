@@ -2,13 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using SecureTrade.DataAccess.Entities;
 
 namespace SecureTrade.DataAccess.Context
 {
-    public class MyAppContext: DbContext
+    public class MyAppContext : IdentityDbContext
     {
+
         public MyAppContext(DbContextOptions<MyAppContext> options): base(options)
     {
         
@@ -39,7 +41,7 @@ namespace SecureTrade.DataAccess.Context
             //    .WithOne(v => v.CustomerSupport) // Vendor has one CustomerSupport
             //    .HasForeignKey<Vendor>(v => v.CustomerSupportId) // Foreign key on Vendor entity
             //    .OnDelete(DeleteBehavior.Restrict); // Set the delete behavior
-        }
+
 
     }
 }
