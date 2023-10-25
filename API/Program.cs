@@ -10,6 +10,8 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
+builder.Services.ConfigureIdentity();
+builder.Services.ConfigureAuthentication(builder.Configuration);
 
 var app = builder.Build();
 
