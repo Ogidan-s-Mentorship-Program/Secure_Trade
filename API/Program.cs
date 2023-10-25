@@ -12,6 +12,7 @@ builder.Services.AddSwaggerGen();
 builder.Services.AddServices();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureAuthentication(builder.Configuration);
+builder.Services.ConfigureSwaggerAndBearer(builder.Configuration);
 
 var app = builder.Build();
 
@@ -19,7 +20,10 @@ var app = builder.Build();
 if (app.Environment.IsDevelopment())
 {
     app.UseSwagger();
-    app.UseSwaggerUI();
+    app.UseSwaggerUI(c =>
+    {
+        c.SwaggerEndpoint("/swagger/v1/swagger.json", "Secure Trade v1");
+    });
 }
 
 app.UseHttpsRedirection();
