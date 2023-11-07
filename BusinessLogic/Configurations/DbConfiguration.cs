@@ -15,9 +15,6 @@ namespace SecureTrade.BusinessLogic.Configurations
         public static void AddDbConfig(this IServiceCollection services, IConfiguration configuration)
         {
 
-            // services.AddDbContext<DbContext>(options =>
-            //options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
-
             services.AddDbContext<MyAppContext>(options =>
             {
                 options.UseSqlServer(configuration.GetConnectionString("YourDatabaseConnection"));
