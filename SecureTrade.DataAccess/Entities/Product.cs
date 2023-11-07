@@ -19,7 +19,7 @@ namespace SecureTrade.DataAccess.Entities
         public string Country { get; set;} = string.Empty;
         public DateTime UploadedAt { get; set; }
         public DateTime EditedAt { get; set; }
-        public Guid UpdatedBy = Guid.NewGuid();
+        public Guid UpdatedBy { get; set; }
         public Guid VendorId { get; set;}   
     }
 }

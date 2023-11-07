@@ -8,13 +8,12 @@ using SecureTrade.DataAccess.Entities;
 
 namespace SecureTrade.DataAccess.Context
 {
-    public class MyAppContext : DbContext
+    public class MyAppContext : IdentityDbContext
     {
         public MyAppContext(DbContextOptions<MyAppContext> options) : base(options)
         {
 
         }
 
-        //public DbSet<ApplicationUser> Users { get; set; }
     }
 }
