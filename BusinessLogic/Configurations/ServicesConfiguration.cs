@@ -13,7 +13,7 @@ namespace SecureTrade.BusinessLogic.Configurations
     {
         public static void AddServices(this IServiceCollection services)
         {
-            services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
+            //services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
         }
     }
 }

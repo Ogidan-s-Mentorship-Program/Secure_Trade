@@ -10,12 +10,6 @@ namespace SecureTrade.DataAccess.Repository.Implementation
     public class GenericRepository<T> : IGenericRepository<T> where T : class
     {
 
-        public GenericRepository()
-        {
-            
-        }
-
-
         public Task DeleteAsync(Guid id)
         {
             throw new NotImplementedException();

@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SecureTrade.DataAccess.Context;
 using SecureTrade.DataAccess.Entities;
@@ -14,7 +15,7 @@ namespace SecureTrade.BusinessLogic.Configurations
     {
         public static void ConfigureIdentity(this IServiceCollection services)
         {
-            services.AddIdentity<User, IdentityRole>(x =>
+            services.AddIdentity<ApplicationUser, IdentityRole>(x =>
             {
                 x.Password.RequireUppercase = true;
                 x.Password.RequiredLength = 7;
@@ -23,6 +24,8 @@ namespace SecureTrade.BusinessLogic.Configurations
             })
                 .AddEntityFrameworkStores<MyAppContext>()
                 .AddDefaultTokenProviders();
+            
+
         }
     }
 }
