@@ -58,35 +58,5 @@ namespace SecureTrade.DataAccess.Repository.Implementation
             _dbSet.Remove(entityToDelete);
             await _appContext.SaveChangesAsync();
         }
-
-        //public Task DeleteAsync(Guid id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task DeleteAsync(T entityToDelete)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<IEnumerable<T>> GetAllAsync()
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<T> GetByIdAysnc(Guid id)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task<bool> InsertAsync(T entityToInsert)
-        //{
-        //    throw new NotImplementedException();
-        //}
-
-        //public Task UpdateAsync(T entityToUpdate)
-        //{
-        //    throw new NotImplementedException();
-        //}
     }
 }
