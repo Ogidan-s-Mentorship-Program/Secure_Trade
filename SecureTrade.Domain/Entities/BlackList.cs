@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
     public class BlackList
     {

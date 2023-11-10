@@ -3,13 +3,13 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
-    public class PhoneNumber
+    public class Order
     {
         public Guid Id = Guid.NewGuid();
-        public string CountryCode { get; set; } = string.Empty;
-        public string Number { get; set; } = string.Empty;
+        public DateTime OrderDate { get; set; } 
+        public Decimal TotalAmount { get; set; } 
         public Guid UserId { get; set; } 
     }
 }

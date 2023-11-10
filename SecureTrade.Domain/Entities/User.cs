@@ -1,13 +1,11 @@
-﻿using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
-    public class ApplicationUser : IdentityUser
+    public class User
     {
         public string FirstName { get; set; } = string.Empty;
         public string LastName { get; set; } = string.Empty;

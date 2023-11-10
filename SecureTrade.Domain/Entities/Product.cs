@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
     public class Product
     {
@@ -20,6 +20,6 @@ namespace SecureTrade.DataAccess.Entities
         public DateTime UploadedAt { get; set; }
         public DateTime EditedAt { get; set; }
         public Guid UpdatedBy { get; set; }
-        public Guid VendorId { get; set;}   
+        public Guid VendorId { get; set;} 
     }
 }

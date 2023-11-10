@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
     public class Review
     {
@@ -14,7 +14,5 @@ namespace SecureTrade.DataAccess.Entities
         public Guid VendorId { get; set; }
         public DateTime RatedAt { get; set; }
         public Guid ProductId { get; set;}
-     
-        
     }
 }
