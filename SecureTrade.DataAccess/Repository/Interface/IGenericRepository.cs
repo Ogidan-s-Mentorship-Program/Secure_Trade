@@ -8,11 +8,11 @@ namespace SecureTrade.DataAccess.Repository.Interface
 {
     public interface IGenericRepository<T> where T : class
     {
-        Task<IEnumerable<T>> GetAllAsync();
-        Task<T> GetByIdAysnc(Guid id);
-        Task<bool> InsertAsync(T entityToInsert);
-        Task UpdateAsync(T entityToUpdate);
         Task DeleteAsync(Guid id);
         Task DeleteAsync(T entityToDelete);
+        Task<IEnumerable<T>> GetAllAsync();
+        Task<T> GetByIdAsync(Guid id);
+        Task<bool> InsertAsync(T entity);
+        Task UpdateAsync(T entity);
     }
 }
