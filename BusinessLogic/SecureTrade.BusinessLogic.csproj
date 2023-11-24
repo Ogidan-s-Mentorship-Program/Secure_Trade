@@ -7,11 +7,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Logics\Implementations\" />
-    <Folder Include="Logics\Interfaces\" />
-  </ItemGroup>
-
-  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="12.0.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="12.0.1" />
     <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="6.0.23" />
     <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="6.0.23" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="6.0.0" />
@@ -21,6 +18,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SecureTrade.DataAccess\SecureTrade.DataAccess.csproj" />
+    <ProjectReference Include="..\SecureTrade.DTOs\SecureTrade.DTOs.csproj" />
   </ItemGroup>
 
 </Project>
