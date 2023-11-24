@@ -29,7 +29,5 @@ namespace SecureTrade.DataAccess.Seed
         }
    
     
-    
-    
     }
 }
