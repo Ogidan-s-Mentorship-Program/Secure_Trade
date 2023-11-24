@@ -2,7 +2,7 @@
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using SecureTrade.DataAccess.Context;
-using SecureTrade.DataAccess.Entities;
+using SecureTrade.Domain.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
