@@ -21,6 +21,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BusinessLogic\SecureTrade.BusinessLogic.csproj" />
+    <ProjectReference Include="..\SecureTrade.DTOs\SecureTrade.DTOs.csproj" />
   </ItemGroup>
 
 </Project>
