@@ -1,22 +1,23 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 
-namespace SecureTrade.DataAccess.Entities
+namespace SecureTrade.Domain.Entities
 {
     public class Vendor
     {
-        public Guid Id = Guid.NewGuid ();
-        public string FirstName { get; set; } = string.Empty;
-        public string LastName { get; set; } = string.Empty;
-        public string MiddleName { get; set; } = string.Empty;
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string CompanyName { get; set; } = string.Empty;
         public string CompanyAddress { get; set; } = string.Empty;
         public string City { get; set; } = string.Empty;
         public string State { get; set; } = string.Empty;
         public string ZipCode { get; set; } = string.Empty;
-        public DateTime AccountCreationDate { get; set; } 
-    
+
+        [ForeignKey("UserId")]
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
