@@ -1,7 +1,9 @@
+using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SecureTrade.BusinessLogic.Configurations;
 using SecureTrade.DataAccess.Context;
+using SecureTrade.DataAccess.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -36,5 +38,11 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+//SEED 
+
+
+
+
 
 app.Run();
