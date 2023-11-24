@@ -9,11 +9,12 @@ namespace SecureTrade.Domain.Entities
 {
     public class PhoneNumber
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string CountryCode { get; set; } = string.Empty;
         public string Number { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

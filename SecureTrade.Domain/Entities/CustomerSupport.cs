@@ -9,10 +9,11 @@ namespace SecureTrade.Domain.Entities
 {
     public class CustomerSupport
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public string Message { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

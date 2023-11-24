@@ -9,7 +9,7 @@ namespace SecureTrade.Domain.Entities
 {
     public class Address
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public int StreetNo { get; set; }
         public string Street { get; set; } = string.Empty;
         public string State { get; set; } = string.Empty;
@@ -18,6 +18,7 @@ namespace SecureTrade.Domain.Entities
         public string ZipCode { get; set; } = string.Empty;
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

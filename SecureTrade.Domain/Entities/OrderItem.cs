@@ -9,16 +9,19 @@ namespace SecureTrade.Domain.Entities
 {
     public class OrderItem
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public int Quantity { get; set; }
 
         [ForeignKey("OrderId")]
-        public virtual Guid OrderId { get; set; }
+        public Guid OrderId { get; set; }
+        public virtual Order Order { get; set; }
 
         [ForeignKey("ProductId")]
-        public virtual Guid ProductId { get; set; }
+        public Guid ProductId { get; set; }
+        public virtual Product Product { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

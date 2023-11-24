@@ -14,14 +14,13 @@ namespace SecureTrade.BusinessLogic.Configurations
     {
         public static void AddDbConfig(this IServiceCollection services, IConfiguration configuration)
         {
+            //services.AddDbContext<MyAppContext>(options =>
+            //{
+            //    options.UseSqlServer(configuration.GetConnectionString(name: "DefaultConnection"));
+            //});
 
             services.AddDbContext<MyAppContext>(options =>
-            {
-                options.UseSqlServer(configuration.GetConnectionString("YourDatabaseConnection"));
-            });
-
-
-
+           options.UseSqlServer(configuration.GetConnectionString("DefaultConnection")));
         }
     }
 }

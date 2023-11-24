@@ -9,13 +9,14 @@ namespace SecureTrade.Domain.Entities
 {
     public class BlackList
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public bool IsTemporary { get; set; }
         public string Reason { get; set; } = string.Empty;
         public DateTime BlackListAt { get; set; }
         public Guid BlackListBy { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }

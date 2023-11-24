@@ -9,11 +9,12 @@ namespace SecureTrade.Domain.Entities
 {
     public class Order
     {
-        public Guid Id = Guid.NewGuid();
+        public Guid Id { get; set; } = Guid.NewGuid();
         public DateTime OrderDate { get; set; }
         public decimal TotalAmount { get; set; }
 
         [ForeignKey("UserId")]
-        public virtual Guid UserId { get; set; }
+        public string UserId { get; set; }
+        public virtual ApplicationUser User { get; set; }
     }
 }
