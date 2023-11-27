@@ -3,6 +3,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using SecureTrade.BusinessLogic.Configurations;
 using SecureTrade.DataAccess.Context;
+using SecureTrade.DataAccess.Entities;
 using SecureTrade.DataAccess.Seed;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -41,8 +42,11 @@ app.MapControllers();
 
 //SEED 
 
-
-
-
+using var scope = app.Services.CreateScope();
+var services = scope.ServiceProvider;
+var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+var userManager = services.GetRequiredService<UserManager<ApplicationUser>>();
+var dbContext = services.GetRequiredService<MyAppContext>();
+await Seeder.Seed(roleManager, userManager, dbContext);
 
 app.Run();
