@@ -1,12 +1,19 @@
 ﻿using AutoMapper;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc;
+using NETCore.MailKit.Core;
+using Org.BouncyCastle.Asn1.Ocsp;
 using SecureTrade.BusinessLogic.Logics.Interfaces;
 using SecureTrade.BusinessLogic.Utilities;
 using SecureTrade.Domain.Entities;
 using SecureTrade.DTOs.ResponseDTOs.UserResponseDTOs;
 using SecureTrade.DTOs.ResquestDTOs.UserRequestDTOs;
+using SecureTrade.Services.MailServices.Models;
+using SecureTrade.Services.MailServices.Services;
 using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -18,12 +25,14 @@ namespace SecureTrade.BusinessLogic.Logics.Implementations
         private readonly UserManager<ApplicationUser> _userManager;
         private readonly IMapper _mapper;
         private readonly RoleManager<IdentityRole> _roleManager;
+        private readonly IEmailServices _emailServices;
 
-        public UserService(UserManager<ApplicationUser> userManager, IMapper mapper, RoleManager<IdentityRole> roleManager)
+        public UserService(UserManager<ApplicationUser> userManager, IMapper mapper, RoleManager<IdentityRole> roleManager, IEmailServices emailServices)
         {
             _userManager = userManager;
             _mapper = mapper;
             _roleManager = roleManager;
+            _emailServices = emailServices;
         }
 
         public async Task<GenericResponse<RegisterUserResponseDTO>> RegisterUserAsync(RegisterUserRequestDTO registerUserRequestDTO)
@@ -66,5 +75,35 @@ namespace SecureTrade.BusinessLogic.Logics.Implementations
             }
             return GenericResponse<RegisterUserResponseDTO>.ErrorResponse("Email Already Exist");
         }
+
+        public async Task<GenericResponse<string>> ForgotPasswordAsync(string email, IHttpContextAccessor httpContextAccessor)
+        {
+            var user = await _userManager.FindByEmailAsync(email);
+            if(user!=null)
+            {
+                var token = await _userManager.GeneratePasswordResetTokenAsync(user);
+                var resetLink = $"{httpContextAccessor.HttpContext.Request.Scheme}://{httpContextAccessor.HttpContext.Request.Host}/User/ResetPassword?token={Uri.EscapeDataString(token)}&email={Uri.EscapeDataString(user.Email)}";
+                var message = new Message(new string[] { user.Email! }, "Forgot Email link", resetLink!);
+                _emailServices.SendEmail(message);
+
+                return GenericResponse<string>.SuccessResponse("Password reset link sent to email successfully");
+                //var link = Url.Action("ResetPassword", "User", new { token, email = user.Email }, Request.Scheme);
+            }
+            return GenericResponse<string>.ErrorResponse("Email not found");
+        }
+
+
+
+
+
+        //public async Task<GenericResponse<ResetEmailRequestDTO>> ForgotPassword(string email)
+        //{
+        //    var user = await _userManager.FindByEmailAsync(emailRequestDTO);
+        //    if (user!=null)
+        //    {
+
+        //    }
+        //    return GenericResponse<ResetEmailRequestDTO>.ErrorResponse("Email Already Exist");
+        //}
     }
 }
