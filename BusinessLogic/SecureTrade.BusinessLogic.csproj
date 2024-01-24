@@ -19,6 +19,7 @@
   <ItemGroup>
     <ProjectReference Include="..\SecureTrade.DataAccess\SecureTrade.DataAccess.csproj" />
     <ProjectReference Include="..\SecureTrade.DTOs\SecureTrade.DTOs.csproj" />
+    <ProjectReference Include="..\SecureTrade.Services\SecureTrade.Services.csproj" />
   </ItemGroup>
 
 </Project>

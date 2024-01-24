@@ -1,4 +1,5 @@
-﻿using SecureTrade.DTOs.ResponseDTOs.UserResponseDTOs;
+﻿using Microsoft.AspNetCore.Http;
+using SecureTrade.DTOs.ResponseDTOs.UserResponseDTOs;
 using SecureTrade.DTOs.ResquestDTOs.UserRequestDTOs;
 using System;
 using System.Collections.Generic;
@@ -11,5 +12,6 @@ namespace SecureTrade.BusinessLogic.Logics.Interfaces
     public interface IUserService
     {
         Task<GenericResponse<RegisterUserResponseDTO>> RegisterUserAsync(RegisterUserRequestDTO registerUserRequestDTO);
+        Task<GenericResponse<string>> ForgotPasswordAsync(string email, IHttpContextAccessor httpContextAccessor);
     }
 }

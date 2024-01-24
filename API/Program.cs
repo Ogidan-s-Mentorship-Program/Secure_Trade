@@ -21,7 +21,17 @@ builder.Services.AddDbConfig(builder.Configuration);
 builder.Services.AddServices();
 builder.Services.ConfigureIdentity();
 builder.Services.ConfigureAuthentication(builder.Configuration);
+builder.Services.ConfigureMailing(builder.Configuration);
 builder.Services.ConfigureSwaggerAndBearer(builder.Configuration);
+
+
+builder.Services.Configure<DataProtectionTokenProviderOptions>(opts => opts.TokenLifespan = TimeSpan.FromMinutes(5));
+
+
+
+
+
+
 
 var app = builder.Build();
 

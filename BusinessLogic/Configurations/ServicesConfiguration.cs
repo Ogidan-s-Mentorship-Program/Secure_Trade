@@ -3,6 +3,7 @@ using SecureTrade.BusinessLogic.Logics.Implementations;
 using SecureTrade.BusinessLogic.Logics.Interfaces;
 using SecureTrade.DataAccess.Repository.Implementation;
 using SecureTrade.DataAccess.Repository.Interface;
+using SecureTrade.Services.MailServices.Services;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -18,6 +19,8 @@ namespace SecureTrade.BusinessLogic.Configurations
             services.AddAutoMapper(typeof(AutoMapperConfiguration));
             services.AddScoped(typeof(IGenericRepository<>), typeof(GenericRepository<>));
             services.AddScoped<IUserService, UserService>();
+            services.AddScoped<IEmailServices, EmailServices>();
+            //services.AddHttpContextAccessor();
         }
     }
 }
